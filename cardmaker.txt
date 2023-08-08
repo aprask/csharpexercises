@@ -1,0 +1,40 @@
+Card card = new Card(2, 13);
+Card.Display();
+class Card
+{
+    private static int cardColor;
+    private static int cardRank;
+
+    public Card(int color, int rank)
+    {
+        cardColor = color;
+        cardRank = rank;
+    }
+
+    public int color
+    {
+        get => color; set => color = value;
+    }
+    public int rank
+    {
+        get => cardRank; set => cardRank = value;
+    }
+
+
+    public static Card Display()
+    {
+        Card color = new Card(cardColor, cardRank);
+        Console.WriteLine($"You have a {(CardColors)cardColor} {(CardRank)cardRank}");
+        return color;
+    }
+
+}
+enum CardColors
+{
+    red = 1, green = 2, blue = 3, yellow = 4
+}
+enum CardRank
+{
+    one = 1, two = 2, three = 3, four = 4, five = 5, six = 6, seven = 7, eight = 8, nine = 9, ten = 10,
+    Dollar = 11, Percent = 12, Carrot = 13, Ampersand = 14
+}

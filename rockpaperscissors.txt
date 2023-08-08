@@ -1,0 +1,69 @@
+RockPaperScissors.PlayGame();
+class RockPaperScissors
+{
+    private static int userOneChoice;
+    private static int userTwoChoice;
+    public static void PlayGame()
+    {
+        while(true)
+        {
+            Console.WriteLine("*Player 1*");
+            Console.WriteLine("1 = Rock, 2 = Paper, 3 = Scissors? ");
+            userOneChoice = Convert.ToInt32(Console.ReadLine());
+            if (userOneChoice <= 1 && userOneChoice >= 3) 
+            {
+                Console.WriteLine("Invalid");
+                continue;
+            }
+
+            Console.Clear();
+            
+            Console.WriteLine("*Player 2*");
+            Console.WriteLine("1 = Rock, 2 = Paper, 3 = Scissors? ");
+            userTwoChoice = Convert.ToInt32(Console.ReadLine());
+
+            if (userTwoChoice < 1 || userTwoChoice > 3)
+            {
+                Console.WriteLine("Invalid");
+                continue;
+            }
+            else
+            {
+                break;
+            }
+        }
+        GameVerdict(userOneChoice, userTwoChoice);
+
+    }
+    static void GameVerdict(int user1, int user2)
+    {
+        if(userOneChoice == userTwoChoice)
+        {
+            Console.WriteLine("DRAW");
+        }
+        else if(userOneChoice == 1 && userTwoChoice == 2)
+        {
+            Console.WriteLine("Player 2's Paper beats Player 1's Rock");
+        }
+        else if(userOneChoice == 1 && userTwoChoice == 3)
+        {
+            Console.WriteLine("Player 1's Rock beats Player 2's Scissors");
+        }
+        else if(userOneChoice == 2 && userTwoChoice == 1)
+        {
+            Console.WriteLine("Player 1's Paper beats Player 2's Rock");
+        }
+        else if (userTwoChoice == 2 && userOneChoice == 3)
+        {
+            Console.WriteLine("Player 1's Scissors beats Player 1's Paper");
+        }
+        else if (userTwoChoice == 3 && userOneChoice == 2)
+        {
+            Console.WriteLine("Player 2's Scissors beats Player 1's Paper");
+        }
+        else if (userTwoChoice == 1 && userOneChoice == 3)
+        {
+            Console.WriteLine("Player 1's Paper beats Player 2's Rock");
+        }
+    }
+}

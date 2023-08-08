@@ -1,0 +1,79 @@
+void userOrder()
+{
+    int x = 0;
+    int y = 0;
+    int z = 0;
+    int count = 0;
+    (foodType, foodIncredient, foodSeasoning) 
+        userSoup
+    = ((foodType)x, (foodIncredient)y, (foodSeasoning)z);
+    while (count != 3)
+    {
+        Console.WriteLine("***********************************");
+        Console.WriteLine("***********************************");
+        Console.WriteLine("Menu");
+        Console.WriteLine("------------------------------------");
+        Console.WriteLine("Food Type:");
+        Console.WriteLine("Soup = 1");
+        Console.WriteLine("Stew = 2");
+        Console.WriteLine("Gumbo = 3");
+        Console.WriteLine("------------------------------------");
+        Console.WriteLine("Food Incredient:");
+        Console.WriteLine("Mushrooms = 1");
+        Console.WriteLine("Chicken = 2");
+        Console.WriteLine("Carrots = 3");
+        Console.WriteLine("Potatoes = 4");
+        Console.WriteLine("------------------------------------");
+        Console.WriteLine("Food Seasoning:");
+        Console.WriteLine("Spicy = 1");
+        Console.WriteLine("Salty = 2");
+        Console.WriteLine("Sweet = 3");
+        Console.WriteLine("***********************************");
+        Console.WriteLine("***********************************");
+        Console.WriteLine("\nFood Type (1-3)? ");
+        x = Convert.ToInt32(Console.ReadLine());
+        if (x <= 3 && x >= 1)
+        {
+            userSoup = ((foodType)x, (foodIncredient)y, (foodSeasoning)z);
+            count++;
+        }
+        else
+        {
+            Console.WriteLine("Not valid, try again!");
+            continue;
+        }
+        Console.WriteLine("\nFood Incredient (1-4)? ");
+        y = Convert.ToInt32(Console.ReadLine());
+        if (y <= 3 && y >= 1)
+        {
+            userSoup = ((foodType)x, (foodIncredient)y, (foodSeasoning)z);
+            count++;
+        }
+        else
+        {
+            Console.WriteLine("Not valid, try again!");
+            continue;
+        }
+        Console.WriteLine("\n Food Seasonin (1-3)? ");
+        z = Convert.ToInt32(Console.ReadLine());
+        if (z <= 3 && z >= 1)
+        {
+            userSoup = ((foodType)x, (foodIncredient)y, (foodSeasoning)z);
+            count++;
+        }
+        else
+        {
+            Console.WriteLine("Not valid, try again!");
+            continue;
+        }
+    }
+    Console.WriteLine($"{userSoup.Item1} {userSoup.Item2} {userSoup.Item3}");
+}
+
+userOrder();
+
+
+
+enum foodType {soup = 1, stew = 2, gumbo = 3}
+enum foodIncredient {mushrooms = 1, chicken = 2, carrots = 3, potatoes = 4}
+enum foodSeasoning {spicy = 1, salty = 2, sweet = 3}

@@ -1,0 +1,119 @@
+Door.BuildDoor();
+class Door
+{
+    static DoorStatus current = DoorStatus.locked;
+    static private int userNum;
+
+    public Door(int num)
+    {
+        userNum = num;
+    }
+
+    public int Num
+    {
+        get => Num; set => Num = value;
+    }
+
+    public static void BuildDoor()
+    {
+        Console.WriteLine("Enter a passcode: ");
+        userNum = Convert.ToInt32(Console.ReadLine());
+        Door door = new Door(userNum);
+        Door.DoorFrame();
+    }
+
+    public static void DoorFrame()
+    {
+        while(true)
+        {
+            Console.WriteLine($"The door is {current}.");
+            Console.WriteLine("To quit, type -1");
+            Console.WriteLine("Enter passcode: ");
+            int userCode = Convert.ToInt32(Console.ReadLine());
+            if (userCode == userNum)
+            {
+                Transitions();
+            }
+            else if (userCode == -1)
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Sorry, that passcode is wrong...");
+                Console.WriteLine("The door is still locked\n");
+                continue;
+            }
+        }
+
+        void Transitions()
+        {
+            current = DoorStatus.closed;
+            while (true)
+                {
+                Console.WriteLine($"The door is {current}.");
+                    Message();
+                    int userDoor = Convert.ToInt32(Console.ReadLine());
+
+                if (userDoor == 1 && current != DoorStatus.locked)
+                {
+                    current = DoorStatus.opened;
+                }
+                else if (userDoor == 2 && current != DoorStatus.closed)
+                {
+                    current = DoorStatus.closed;
+                }
+                else if (userDoor == userNum && current != DoorStatus.opened)
+                {
+                    current = DoorStatus.locked;
+                }
+                else if (userDoor == 4)
+                {
+                    ChangePassword();
+                }
+                else if (userDoor == 5) 
+                {
+                    break;
+                }
+        
+            }
+        }
+
+        void ChangePassword()
+        {
+            while(true)
+            {
+                Console.WriteLine("Enter Current Password");
+                int currentTest = Convert.ToInt32(Console.ReadLine());
+                if (currentTest == userNum)
+                {
+                    Console.WriteLine("Insert New Password");
+                    userNum = Convert.ToInt32(Console.ReadLine());
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }    
+
+        }
+
+        void Message()
+        {
+            Console.WriteLine("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
+            Console.WriteLine("Open Door = 1");
+            Console.WriteLine("Close Door = 2");
+            Console.WriteLine("Lock Door = PASSWORD");
+            Console.WriteLine("Change Password = 4");
+            Console.WriteLine("Quit = 5");
+            Console.WriteLine("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n");
+        }
+
+    }
+}
+
+enum DoorStatus
+{
+    opened = 1, closed = 2, locked = 3
+}

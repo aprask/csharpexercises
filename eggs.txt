@@ -1,0 +1,14 @@
+string userEggs;
+Console.WriteLine("Enter the total number of eggs:\n");
+userEggs = Console.ReadLine();
+
+// ask user for eggs
+// store it
+// convert it
+
+int userEggsInt = Convert.ToInt32(userEggs);
+
+int userEggsDivided = userEggsInt / 4;
+int userEggsLeft = userEggsInt % 4;
+Console.WriteLine(userEggsDivided + " eggs each.");
+Console.WriteLine(userEggsLeft + " eggs left.");

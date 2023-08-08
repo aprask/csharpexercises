@@ -1,0 +1,22 @@
+int sysGuess = 0;
+int userNumber = -1;
+while(userNumber > 100 || userNumber < 0)
+{
+    Console.WriteLine("Number? ");
+    string userResponse = Console.ReadLine();
+    userNumber = Convert.ToInt32(userResponse);
+    while(sysGuess != userNumber)
+    {
+        Console.WriteLine("Guess? ");
+        string systemGuess = Console.ReadLine();
+        sysGuess = Convert.ToInt32(systemGuess);
+        if(sysGuess != userNumber)
+        {
+            Console.WriteLine("Try again!");
+        }
+        else
+        {
+            Console.WriteLine("Correct!");
+        }
+    }
+}

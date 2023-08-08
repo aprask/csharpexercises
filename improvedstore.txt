@@ -1,0 +1,112 @@
+void displayStore()
+{
+    int x = 0;
+    int y = 0;
+    float z = 0f;
+    Arrow userArrow = new Arrow(x, y, z);
+    while (true)
+    {
+        Console.WriteLine("Arrow Heads:" + "\nSteel = 1" + "\n Wood = 2" + "\n Obisidan = 3");
+        Console.WriteLine("Select an Arrow Head Type (1-3): ");
+        x = Convert.ToInt32(Console.ReadLine());
+        if (x <= 3 && x >= 1)
+        {
+            userArrow.SetHead(x);
+        }
+        else
+        {
+            Console.WriteLine("Not valid...");
+            continue;
+        }
+        Console.WriteLine("Arrow Fletchings:" + "\nPlastic = 1" + "\n Turkey Feathers = 2" + "\n Goose Feathers = 3");
+        Console.WriteLine("Select an Arrow Fletching Type (1-3): ");
+        y = Convert.ToInt32(Console.ReadLine());
+        if (y <= 3 && y >= 1)
+        {
+            userArrow.SetFletch(y);
+        }
+        else
+        {
+            Console.WriteLine("Not valid...");
+            continue;
+        }
+        Console.WriteLine("Select a Length (60 cm -> 100 cm): ");
+        z = Convert.ToSingle(Console.ReadLine());
+        if (z <= 100 && z >= 60)
+        {
+            userArrow.SetLength(z);
+            break;
+        }
+        else
+        {
+            Console.WriteLine("Not valid...");
+            continue;
+        }
+    }
+
+    void getCost()
+    {
+        float cost = 0;
+        if (userArrow.GetHead() == 1)
+        {
+            cost = cost + 10;
+        }
+        else if(userArrow.GetHead() == 2)
+        {
+            cost = cost + 3;
+        }
+        else if(userArrow.GetHead() == 3)
+        {
+            cost = cost + 5;
+        }
+        if(userArrow.GetFletch() == 1)
+        {
+            cost = cost + 10;
+        }
+        else if (userArrow.GetFletch() == 2)
+        {
+            cost = cost + 5;
+        }
+        else if (userArrow.GetFletch() == 3)
+        {
+            cost = cost + 3;
+        }
+        cost = cost + Convert.ToSingle(userArrow.GetLength()) * 0.05f;
+        Console.WriteLine(cost);
+    }
+    getCost();
+}
+
+displayStore();
+class Arrow
+{
+    private int arrowHead;
+    private int arrowFletching;
+    private float arrowLength;
+
+    public Arrow(int head, int fletching, float length)
+    {
+        this.arrowHead = head;
+        this.arrowFletching = fletching;
+        this.arrowLength = length;
+
+    }
+
+    public int GetHead() => this.arrowHead;
+    public int GetFletch() => this.arrowFletching;
+    public float GetLength() => this.arrowLength;
+
+    public void SetHead(int x) 
+    {
+        arrowHead = x;
+    }
+    public void SetFletch(int x)
+    {
+        arrowFletching = x;
+    }
+    public void SetLength(float x)
+    {
+        arrowLength = x;
+    }
+
+}

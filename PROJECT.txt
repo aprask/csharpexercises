@@ -1,0 +1,79 @@
+void userGame()
+{
+    Console.WriteLine("**********************");
+    Console.WriteLine("**********************");
+    Console.WriteLine("**********************");
+    Console.WriteLine("**********************");
+    Console.WriteLine("HUNTING THE MANTICORE");
+    Console.WriteLine("**********************");
+    Console.WriteLine("**********************");
+    Console.WriteLine("**********************");
+    Console.WriteLine("**********************");
+    int userOne = 10;
+    int userTwo = 15;
+    int userOneDistance = 0;
+    int userTwoDistance = 0;
+    int userCannon = 0;
+    int x = 0;
+    Console.WriteLine("Player 1, choose a distance from the city (0 --> 100): ");
+    userOneDistance = Convert.ToInt32(Console.ReadLine());
+    Console.Clear();
+    while (true)
+    {
+        x++;
+        if(userOne < 0)
+        {
+            break;
+        }
+        else if(userTwo < 0)
+        {
+            break;
+        }
+        if (x % 3 == 0 && x % 5 == 0)
+        {
+            userCannon = 10;
+        }
+        else if (x % 3 == 0)
+        {
+            userCannon = 3;
+        }
+        else if (x % 5 == 0)
+        {
+            userCannon = 3;
+        }
+        else
+        {
+            userCannon = 1;
+        }
+        Console.WriteLine("-------------------------------------");
+        Console.WriteLine($"STATUS: Round: {x} City: {userTwo}/15 Manticore {userOne}/10 ");
+        Console.WriteLine($"The cannon is expected to deal {userCannon} damage this round!");
+        Console.WriteLine("Enter desired cannon range: ");
+        userTwoDistance = Convert.ToInt32(Console.ReadLine());
+        if(userOneDistance > userTwoDistance)
+        {
+            Console.WriteLine("Too Short!");
+            userTwo--;
+        }
+        else if (userOneDistance < userTwoDistance)
+        {
+            Console.WriteLine("Too Far!");
+            userTwo--;
+        }
+        else
+        {
+            Console.WriteLine("DIRECT HIT!");
+            userOne-=userCannon;
+        }
+    }
+    if(userOne > userTwo)
+    {
+        Console.WriteLine("Player 1 Wins!");
+    }
+    else
+    {
+        Console.WriteLine("Player 2 Wins!");
+    }
+}
+
+userGame(); 

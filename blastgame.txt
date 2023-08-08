@@ -1,0 +1,18 @@
+for(int x = 1; x <= 100; x++)
+{
+    if (x % 3 == 0)
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine($"{x} - Fire Blast!");
+    }
+    else if(x % 5 == 0)
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine($"{x} - Electric Blast!");
+    }
+    else
+    {
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.WriteLine($"{x} - Electric and Fire Blast!");
+    }
+}

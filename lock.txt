@@ -1,0 +1,33 @@
+Chest current = Chest.locked;
+string userChoice;
+
+while(true)
+{
+    Console.WriteLine($"The chest is {current}.");
+    Console.Write("What do you want to do? ");
+    userChoice = Console.ReadLine();
+
+    if (userChoice == "unlock" && current != Chest.open)
+    {
+        current = Chest.closed;
+    }
+    else if(userChoice == "lock" && current != Chest.open)
+    {
+        current = Chest.locked;
+    }
+    else if(userChoice == "close" && current != Chest.locked)
+    {
+        current = Chest.closed;
+    }
+    else if(userChoice == "open" && current != Chest.locked)
+    {
+        current = Chest.open;
+    }
+}
+
+enum Chest 
+{
+    closed,
+    open,
+    locked
+}

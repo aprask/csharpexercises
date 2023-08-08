@@ -1,0 +1,48 @@
+string y;
+string x;
+
+Console.Write("Enter an x-value: ");
+x = Console.ReadLine();
+int numX = Convert.ToInt32(x);
+
+Console.Write("Enter a y-value: ");
+y = Console.ReadLine();
+int numY = Convert.ToInt32(y);
+
+if (numX < 0 && numY > 0)
+{
+    Console.WriteLine("NW");
+}
+else if (numX < 0 && numY == 0)
+{
+    Console.WriteLine("W");
+}
+else if (numX < 0 && numY < 0)
+{
+    Console.WriteLine("SW");
+}
+else if (numX == 0 && numY > 0)
+{
+    Console.WriteLine("N");
+}
+else if (numX == 0 && numY == 0)
+{
+    Console.WriteLine("!");
+}
+else if (numX == 0 && numY < 0)
+{
+    Console.WriteLine("S");
+}
+else if (numX > 0 && numY > 0)
+{
+    Console.WriteLine("NE");
+}
+else if (numX > 0 && numY == 0)
+{
+    Console.WriteLine("E");
+}
+
+else if (numX > 0 && numY < 0)
+{
+    Console.WriteLine("SE");
+}

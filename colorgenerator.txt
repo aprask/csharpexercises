@@ -1,0 +1,82 @@
+Color color = new Color(255,255,255);
+Color staticColor = Color.Purple();
+
+Console.WriteLine($"R={color.RED} G={color.GREEN} B={color.BLUE}");
+Console.WriteLine($"R={staticColor.RED} G={staticColor.GREEN} B={staticColor.BLUE}");
+class Color
+{
+    private byte red;
+    private byte green;
+    private byte blue;
+    
+    public Color(byte red, byte green, byte blue)
+    {
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
+    }
+
+    public byte RED
+    {
+        get => red;
+        set => red = value;
+    }
+
+    public byte GREEN
+    {
+        get => green;
+        set => green = value;
+    }
+
+    public byte BLUE
+    {
+        get => blue;
+        set => blue = value;
+    }
+
+    public static Color White()
+    {
+        Color color = new Color(255,255,255);
+        return color;
+    }
+    public static Color Black()
+    {
+        Color color = new Color(0, 0, 0);
+        return color;
+    }
+
+    public static Color Red()
+    {
+        Color color = new Color(255, 0, 0);
+        return color;
+    }
+
+    public static Color Orange()
+    {
+        Color color = new Color(255, 165, 255);
+        return color;
+    }
+
+    public static Color Yellow()
+    {
+        Color color = new Color(255, 255, 0);
+        return color;
+    }
+    public static Color Green()
+    {
+        Color color = new Color(0, 128, 0);
+        return color;
+    }
+
+    public static Color Blue()
+    {
+        Color color = new Color(0, 0, 255);
+        return color;
+    }
+
+    public static Color Purple()
+    {
+        Color color = new Color(150, 0, 150);
+        return color;
+    }
+}

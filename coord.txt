@@ -1,0 +1,20 @@
+string PreuserRow;
+string PreuserColumn;
+
+Console.Title = "Defense of Consolas";
+
+Console.WriteLine("Enter Row: ");
+PreuserRow = Console.ReadLine();
+Console.WriteLine("Enter Column: ");
+PreuserColumn = Console.ReadLine();
+
+int userRow = Convert.ToInt32(PreuserRow);
+int userColumn = Convert.ToInt32(PreuserColumn);
+
+Console.BackgroundColor = ConsoleColor.Green;
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine("Deploy to: ");
+Console.WriteLine($"({userRow},{userColumn-1})");
+Console.WriteLine($"({userRow},{userColumn+1})");
+Console.WriteLine($"({userRow+1},{userColumn})");
+Console.WriteLine($"({userRow-1},{userColumn})");

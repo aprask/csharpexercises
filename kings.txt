@@ -1,0 +1,17 @@
+Console.WriteLine("Enter number of provinces: ");
+string userProvinces = Console.ReadLine();
+Console.WriteLine("Enter number of duchies: ");
+string userDuch = Console.ReadLine();
+Console.WriteLine("Enter number of estates: ");
+string userEst = Console.ReadLine();
+
+int userProvinces_Num = Convert.ToInt32(userProvinces);
+int userDuch_Num = Convert.ToInt32(userDuch);
+int userEst_Num = Convert.ToInt32(userEst);
+
+
+int estPoints = userEst_Num * 1;
+int duchPoints = userDuch_Num * 3;
+int provincePoints = userProvinces_Num * 6;
+
+Console.WriteLine(estPoints + duchPoints + provincePoints);

@@ -1,0 +1,14 @@
+int CountDownToOne(int x)
+{
+    if (x != 1)
+    {
+        Console.WriteLine(x);
+        return CountDownToOne(x - 1);
+    }
+    else
+    {
+        return x;
+    }
+}
+
+Console.WriteLine(CountDownToOne(100));
